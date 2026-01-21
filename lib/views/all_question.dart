@@ -174,56 +174,131 @@ class AllView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            SizedBox(height: 48),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 30),
-              child: Row(
-                crossAxisAlignment: CrossAxisAlignment.start,
-
-                children: [
-                  Container(
-                    height: 25,
-                    width: 25,
-                    decoration: BoxDecoration(
-                      image: DecorationImage(
-                        image: AssetImage("assets/image.png"),
-                        fit: BoxFit.contain,
+    return SingleChildScrollView(
+      child: Column(
+        children: [
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              SizedBox(height: 48),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 30),
+                child: Row(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+      
+                  children: [
+                    Container(
+                      height: 25,
+                      width: 25,
+                      decoration: BoxDecoration(
+                        image: DecorationImage(
+                          image: AssetImage("assets/image.png"),
+                          fit: BoxFit.contain,
+                        ),
+                        shape: BoxShape.circle,
                       ),
-                      shape: BoxShape.circle,
                     ),
+                    SizedBox(width: 8),
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            "Fareeha Sadaqat",
+                            style: GoogleFonts.raleway(
+                              fontWeight: FontWeight.w500,
+                              fontSize: 11.11,
+                              color: const Color(0xff292929),
+                            ),
+                          ),
+                          Text(
+                            "10 mins ago",
+                            style: GoogleFonts.raleway(
+                              fontWeight: FontWeight.w400,
+                              fontSize: 9.26,
+                              color: const Color(0xffB4B4B4),
+                            ),
+                          ),
+                        ]),
+                    Spacer(),
+                    InkWell(
+                      onTap: (){
+                        Navigator.push(context, MaterialPageRoute(builder: (context) => PostAnswerView()));
+                      },
+                      child: Text(
+                        "Answer",
+                        style: GoogleFonts.raleway(
+                          fontWeight: FontWeight.w400,
+                          fontSize: 11.11,
+                          color: const Color(0xff339D44),
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              SizedBox(height: 15.5,),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 30),
+                child: Text(
+                  "I have an issue regarding this vehicle",
+                  style: GoogleFonts.raleway(
+                    fontWeight: FontWeight.w500,
+                    fontSize: 13.33,
+                    color: const Color(0xff292929),
                   ),
-                  SizedBox(width: 8),
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          "Fareeha Sadaqat",
-                          style: GoogleFonts.raleway(
-                            fontWeight: FontWeight.w500,
-                            fontSize: 11.11,
-                            color: const Color(0xff292929),
-                          ),
+                ),
+              ),
+              SizedBox(height: 15,),
+              Image.asset("assets/tractor.png"),
+              SizedBox(height: 24,),
+              Divider(color: Color(0xffd4d4d4),),
+              SizedBox(height: 24,),
+      
+            ],
+          ),
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 30),
+                child: Row(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+      
+                  children: [
+                    Container(
+                      height: 25,
+                      width: 25,
+                      decoration: BoxDecoration(
+                        image: DecorationImage(
+                          image: AssetImage("assets/image.png"),
+                          fit: BoxFit.contain,
                         ),
-                        Text(
-                          "10 mins ago",
-                          style: GoogleFonts.raleway(
-                            fontWeight: FontWeight.w400,
-                            fontSize: 9.26,
-                            color: const Color(0xffB4B4B4),
+                        shape: BoxShape.circle,
+                      ),
+                    ),
+                    SizedBox(width: 8),
+                    Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            "Fareeha Sadaqat",
+                            style: GoogleFonts.raleway(
+                              fontWeight: FontWeight.w500,
+                              fontSize: 11.11,
+                              color: const Color(0xff292929),
+                            ),
                           ),
-                        ),
-                      ]),
-                  Spacer(),
-                  InkWell(
-                    onTap: (){
-                      Navigator.push(context, MaterialPageRoute(builder: (context) => PostAnswerView()));
-                    },
-                    child: Text(
+                          Text(
+                            "10 mins ago",
+                            style: GoogleFonts.raleway(
+                              fontWeight: FontWeight.w400,
+                              fontSize: 9.26,
+                              color: const Color(0xffB4B4B4),
+                            ),
+                          ),
+                        ]),
+                    Spacer(),
+                    Text(
                       "Answer",
                       style: GoogleFonts.raleway(
                         fontWeight: FontWeight.w400,
@@ -231,178 +306,105 @@ class AllView extends StatelessWidget {
                         color: const Color(0xff339D44),
                       ),
                     ),
-                  ),
-                ],
-              ),
-            ),
-            SizedBox(height: 15.5,),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 30),
-              child: Text(
-                "I have an issue regarding this vehicle",
-                style: GoogleFonts.raleway(
-                  fontWeight: FontWeight.w500,
-                  fontSize: 13.33,
-                  color: const Color(0xff292929),
+                  ],
                 ),
               ),
-            ),
-            SizedBox(height: 15,),
-            Image.asset("assets/tractor.png"),
-            SizedBox(height: 24,),
-            Divider(color: Color(0xffd4d4d4),),
-            SizedBox(height: 24,),
-
-          ],
-        ),
-        Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 30),
-              child: Row(
-                crossAxisAlignment: CrossAxisAlignment.start,
-
-                children: [
-                  Container(
-                    height: 25,
-                    width: 25,
-                    decoration: BoxDecoration(
-                      image: DecorationImage(
-                        image: AssetImage("assets/image.png"),
-                        fit: BoxFit.contain,
+              SizedBox(height: 15.5,),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 30),
+                child: Text(
+                  "What is the process of purchasing Vehicle from hardware store?",
+                  style: GoogleFonts.raleway(
+                    fontWeight: FontWeight.w500,
+                    fontSize: 13.33,
+                    color: const Color(0xff292929),
+                  ),
+                ),
+              ),
+              //SizedBox(height: 15,),
+              //Image.asset("assets/tractor.png"),
+              SizedBox(height: 24,),
+              Divider(color: Color(0xffd4d4d4),),
+              SizedBox(height: 24,),
+      
+            ],
+          ),
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 30),
+                child: Row(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+      
+                  children: [
+                    Container(
+                      height: 25,
+                      width: 25,
+                      decoration: BoxDecoration(
+                        image: DecorationImage(
+                          image: AssetImage("assets/image.png"),
+                          fit: BoxFit.contain,
+                        ),
+                        shape: BoxShape.circle,
                       ),
-                      shape: BoxShape.circle,
                     ),
-                  ),
-                  SizedBox(width: 8),
-                  Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          "Fareeha Sadaqat",
-                          style: GoogleFonts.raleway(
-                            fontWeight: FontWeight.w500,
-                            fontSize: 11.11,
-                            color: const Color(0xff292929),
+                    SizedBox(width: 8),
+                    Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            "Fareeha Sadaqat",
+                            style: GoogleFonts.raleway(
+                              fontWeight: FontWeight.w500,
+                              fontSize: 11.11,
+                              color: const Color(0xff292929),
+                            ),
                           ),
-                        ),
-                        Text(
-                          "10 mins ago",
-                          style: GoogleFonts.raleway(
-                            fontWeight: FontWeight.w400,
-                            fontSize: 9.26,
-                            color: const Color(0xffB4B4B4),
+                          Text(
+                            "10 mins ago",
+                            style: GoogleFonts.raleway(
+                              fontWeight: FontWeight.w400,
+                              fontSize: 9.26,
+                              color: const Color(0xffB4B4B4),
+                            ),
                           ),
-                        ),
-                      ]),
-                  Spacer(),
-                  Text(
-                    "Answer",
-                    style: GoogleFonts.raleway(
-                      fontWeight: FontWeight.w400,
-                      fontSize: 11.11,
-                      color: const Color(0xff339D44),
-                    ),
-                  ),
-                ],
-              ),
-            ),
-            SizedBox(height: 15.5,),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 30),
-              child: Text(
-                "What is the process of purchasing Vehicle from hardware store?",
-                style: GoogleFonts.raleway(
-                  fontWeight: FontWeight.w500,
-                  fontSize: 13.33,
-                  color: const Color(0xff292929),
-                ),
-              ),
-            ),
-            //SizedBox(height: 15,),
-            //Image.asset("assets/tractor.png"),
-            SizedBox(height: 24,),
-            Divider(color: Color(0xffd4d4d4),),
-            SizedBox(height: 24,),
-
-          ],
-        ),
-        Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 30),
-              child: Row(
-                crossAxisAlignment: CrossAxisAlignment.start,
-
-                children: [
-                  Container(
-                    height: 25,
-                    width: 25,
-                    decoration: BoxDecoration(
-                      image: DecorationImage(
-                        image: AssetImage("assets/image.png"),
-                        fit: BoxFit.contain,
+                        ]),
+                    Spacer(),
+                    Text(
+                      "Answer",
+                      style: GoogleFonts.raleway(
+                        fontWeight: FontWeight.w400,
+                        fontSize: 11.11,
+                        color: const Color(0xff339D44),
                       ),
-                      shape: BoxShape.circle,
                     ),
-                  ),
-                  SizedBox(width: 8),
-                  Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          "Fareeha Sadaqat",
-                          style: GoogleFonts.raleway(
-                            fontWeight: FontWeight.w500,
-                            fontSize: 11.11,
-                            color: const Color(0xff292929),
-                          ),
-                        ),
-                        Text(
-                          "10 mins ago",
-                          style: GoogleFonts.raleway(
-                            fontWeight: FontWeight.w400,
-                            fontSize: 9.26,
-                            color: const Color(0xffB4B4B4),
-                          ),
-                        ),
-                      ]),
-                  Spacer(),
-                  Text(
-                    "Answer",
-                    style: GoogleFonts.raleway(
-                      fontWeight: FontWeight.w400,
-                      fontSize: 11.11,
-                      color: const Color(0xff339D44),
-                    ),
-                  ),
-                ],
-              ),
-            ),
-            SizedBox(height: 15.5,),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 30),
-              child: Text(
-                "What is the process of purchasing Vehicle from hardware store?",
-                style: GoogleFonts.raleway(
-                  fontWeight: FontWeight.w500,
-                  fontSize: 13.33,
-                  color: const Color(0xff292929),
+                  ],
                 ),
               ),
-            ),
-            //SizedBox(height: 15,),
-            //Image.asset("assets/tractor.png"),
-            SizedBox(height: 24,),
-            Divider(color: Color(0xffd4d4d4),),
-            SizedBox(height: 24,),
-
-          ],
-        ),
-
-      ],
+              SizedBox(height: 15.5,),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 30),
+                child: Text(
+                  "What is the process of purchasing Vehicle from hardware store?",
+                  style: GoogleFonts.raleway(
+                    fontWeight: FontWeight.w500,
+                    fontSize: 13.33,
+                    color: const Color(0xff292929),
+                  ),
+                ),
+              ),
+              //SizedBox(height: 15,),
+              //Image.asset("assets/tractor.png"),
+              SizedBox(height: 24,),
+              Divider(color: Color(0xffd4d4d4),),
+              SizedBox(height: 24,),
+      
+            ],
+          ),
+      
+        ],
+      ),
     );
   }
 }
@@ -416,11 +418,41 @@ class PendingView extends StatelessWidget {
   }
 }
 
+/// Answer
 class AnswerView extends StatelessWidget {
   const AnswerView({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Text("Answer");
+    return Column(
+      children: [
+        SizedBox(height: 78,),
+        Image.asset("assets/nodata.png",width: 190, height: 206,),
+        SizedBox(height: 35,),
+        Text(
+          "No Data Found",
+          style: GoogleFonts.raleway(
+            fontWeight: FontWeight.w500,
+            fontSize: 23,
+            color: const Color(0xff292929),
+          ),
+
+        ),
+        SizedBox(height: 8,),
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 80),
+          child: Text(
+            "You have not answered any questions yet",
+            textAlign: TextAlign.center,
+            style: GoogleFonts.raleway(
+              fontWeight: FontWeight.w400,
+              fontSize: 16,
+              color: const Color(0xffB4B4B4),
+            ),
+
+          ),
+        ),
+      ],
+    );
   }
 }

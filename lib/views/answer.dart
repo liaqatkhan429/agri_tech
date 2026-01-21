@@ -18,7 +18,11 @@ class PostAnswerView extends StatelessWidget {
                 SizedBox(height: 5,),
                 Row(
                   children: [
-                    Image.asset("assets/arrow_back_icon.png",height: 24,width: 24,),
+                    InkWell(
+                        onTap: (){
+                          Navigator.pop(context);
+                        },
+                        child: Image.asset("assets/arrow_back_icon.png",height: 24,width: 24,)),
                     SizedBox(width: 20,),
                     Text(
                       "Answer",
