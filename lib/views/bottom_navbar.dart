@@ -3,7 +3,7 @@ import 'package:agri_tech/views/answer.dart';
 import 'package:agri_tech/views/comment.dart';
 import 'package:agri_tech/views/home.dart';
 import 'package:agri_tech/views/profile.dart';
-import 'package:agri_tech/views/videos.dart';
+import 'package:agri_tech/views/training_videos.dart';
 import 'package:flutter/material.dart';
 
 class BottomNavbarView extends StatefulWidget {
@@ -19,7 +19,7 @@ class _BottomNavbarViewState extends State<BottomNavbarView> {
   final List<Widget> screenList = [
     HomeView(),
     QuestionsView(),
-    VideosView(),
+    TrainingVideosView(),
     CommentView(),
     ProfileView(),
   ];

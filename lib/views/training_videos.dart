@@ -1,23 +1,25 @@
+import 'package:agri_tech/views/add_video.dart';
+import 'package:agri_tech/views/home.dart';
 import 'package:agri_tech/views/user_comment.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import '../utils/utils.dart';
 
-class VideosView extends StatefulWidget {
-  const VideosView({super.key});
+class TrainingVideosView extends StatefulWidget {
+  const TrainingVideosView({super.key});
 
   @override
-  State<VideosView> createState() => _VideosViewState();
+  State<TrainingVideosView> createState() => _TrainingVideosViewState();
 }
 
-class _VideosViewState extends State<VideosView> {
+class _TrainingVideosViewState extends State<TrainingVideosView> {
   TextEditingController searchController = TextEditingController();
 
   bool isSearch = false;
   @override
   Widget build(BuildContext context) {
-    return DefaultTabController(
+    return DefaultTabController (
       length: 2,
       initialIndex: 0,
       child: Scaffold(
@@ -38,13 +40,16 @@ class _VideosViewState extends State<VideosView> {
                         color: const Color(0xff292929),
                       ),
                     ),
+
                     isSearch
-                    /// close icon
+
                         ? InkWell(
                       splashColor: Colors.transparent,
                       onTap: () {
-                        isSearch = false;
-                        setState(() {});
+                        setState(() {
+                          isSearch = false;
+                          searchController.clear();
+                        });
                       },
                       child: Image.asset(
                         "assets/close_icon.png",
@@ -52,28 +57,44 @@ class _VideosViewState extends State<VideosView> {
                         width: 24,
                       ),
                     )
-                    /// search icon
-                        : InkWell(
-                      splashColor: Colors.transparent,
-                      onTap: () {
-                        isSearch = true;
-                        setState(() {});
-                      },
-                      child: Row(
-                        children: [
-                          Image.asset(
+                    // 🔍 Search + ➕ Add
+                        : Row(
+                      children: [
+                        InkWell(
+                          splashColor: Colors.transparent,
+                          onTap: () {
+                            setState(() {
+                              isSearch = true;
+                            });
+                          },
+                          child: Image.asset(
                             "assets/search_icon.png",
                             height: 24,
                             width: 24,
                           ),
-                          SizedBox(width: 13,),
-                          Icon(Icons.add, size: 24, color: Color(0xff339D44),)
-                        ],
-                      ),
+                        ),
+                        const SizedBox(width: 13),
+                        InkWell(
+                          splashColor: Colors.transparent,
+                          onTap: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) =>  AddVideoView(),
+                              ),
+                            );
+                          },
+                          child: const Icon(
+                            Icons.add,
+                            size: 24,
+                            color: Color(0xff339D44),
+                          ),
+                        ),
+                      ],
                     ),
-
                   ],
                 ),
+
               ),
               SizedBox(height: 22),
               Padding(

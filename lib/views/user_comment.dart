@@ -27,7 +27,11 @@ class _UserCommentViewState extends State<UserCommentView> {
                 padding: const EdgeInsets.symmetric(horizontal: 30),
                 child: Row(
                   children: [
-                    Image.asset("assets/arrow_back_icon.png",height: 24,width: 24,),
+                    InkWell(
+                        onTap: (){
+                          Navigator.pop(context);
+                        },
+                        child: Image.asset("assets/arrow_back_icon.png",height: 24,width: 24,)),
 
                     SizedBox(width: 20,),
                     Text(
@@ -104,61 +108,292 @@ class _TabAllViewState extends State<TabAllView> {
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.only(top: 40,left: 30,right: 30),
-      child: Column(
-        children: [
-          Row(
-            children: [
-              Text(
-                "Video: ",
-                style: GoogleFonts.raleway(
-                  fontWeight: FontWeight.w500,
-                  fontSize: 13.33,
-                  color: const Color(0xff339D44),
+      child: SingleChildScrollView(
+        child: Column(
+          children: [
+            Row(
+              children: [
+                Text(
+                  "Video: ",
+                  style: GoogleFonts.raleway(
+                    fontWeight: FontWeight.w500,
+                    fontSize: 13.33,
+                    color: const Color(0xff339D44),
+                  ),
                 ),
-              ),
-              Text(
-                "How to start A tractor",
-                style: GoogleFonts.raleway(
-                  fontWeight: FontWeight.w500,
-                  fontSize: 13.33,
-                  color: const Color(0xff292929),
+                Text(
+                  "How to start A tractor",
+                  style: GoogleFonts.raleway(
+                    fontWeight: FontWeight.w500,
+                    fontSize: 13.33,
+                    color: const Color(0xff292929),
+                  ),
                 ),
-              ),
-            ],
-          ),
-          SizedBox(height: 30,),
-          
-          Column(
-            children: [
-              Row(
-                children: [
-                  Image.asset("assets/image.png", height: 25, width: 25,),
-                  SizedBox(width: 6,),
-                  Column(
-                    children: [
-                      Text(
-                        "Mosab Mehmood",
-                        style: GoogleFonts.raleway(
-                          fontWeight: FontWeight.w500,
-                          fontSize: 11.11,
-                          color: const Color(0xff292929),
+              ],
+            ),
+            SizedBox(height: 30,),
+            
+            Column(
+              children: [
+                Row(
+                  children: [
+                    Image.asset("assets/image.png", height: 25, width: 25,),
+                    SizedBox(width: 6,),
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          "Mosab Mehmood",
+                          style: GoogleFonts.raleway(
+                            fontWeight: FontWeight.w500,
+                            fontSize: 11.11,
+                            color: const Color(0xff292929),
+                          ),
                         ),
-                      ),
-                      Text(
-                        "11/10/2021",
-                        style: GoogleFonts.raleway(
-                          fontWeight: FontWeight.w400,
-                          fontSize: 9.26,
-                          color: const Color(0xffB4B4B4),
+                        Text(
+                          "11/10/2021",
+                          style: GoogleFonts.raleway(
+                            fontWeight: FontWeight.w400,
+                            fontSize: 9.26,
+                            color: const Color(0xffB4B4B4),
+                          ),
                         ),
-                      ),
-                    ],
-                  )
-                ],
-              )
-            ],
-          )
-        ],
+                      ],
+                    )
+                  ],
+                ),
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 31),
+                  child: Text(
+                    "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pulvinar ante id netus sit congue justo. Felis, volutpat sit senectus tempor, aliquam. Tellus proin enim orci in ullamcorper egestas dolor. Dictumst sed.",
+                    style: GoogleFonts.raleway(
+                      fontWeight: FontWeight.w400,
+                      fontSize: 11.11,
+                      color: const Color(0xff292929),
+                    ),
+                  ),
+                ),
+                SizedBox(height: 15,),
+              ],
+            ),
+            Column(
+              children: [
+                Row(
+                  children: [
+                    Image.asset("assets/image.png", height: 25, width: 25,),
+                    SizedBox(width: 6,),
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          "Mosab Mehmood",
+                          style: GoogleFonts.raleway(
+                            fontWeight: FontWeight.w500,
+                            fontSize: 11.11,
+                            color: const Color(0xff292929),
+                          ),
+                        ),
+                        Text(
+                          "11/10/2021",
+                          style: GoogleFonts.raleway(
+                            fontWeight: FontWeight.w400,
+                            fontSize: 9.26,
+                            color: const Color(0xffB4B4B4),
+                          ),
+                        ),
+                      ],
+                    )
+                  ],
+                ),
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 31),
+                  child: Text(
+                    "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pulvinar ante id netus sit congue justo. Felis, volutpat sit senectus tempor, aliquam. Tellus proin enim orci in ullamcorper egestas dolor. Dictumst sed.",
+                    style: GoogleFonts.raleway(
+                      fontWeight: FontWeight.w400,
+                      fontSize: 11.11,
+                      color: const Color(0xff292929),
+                    ),
+                  ),
+                ),
+                SizedBox(height: 15,),
+              ],
+            ),
+            Column(
+              children: [
+                Row(
+                  children: [
+                    Image.asset("assets/image.png", height: 25, width: 25,),
+                    SizedBox(width: 6,),
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          "Mosab Mehmood",
+                          style: GoogleFonts.raleway(
+                            fontWeight: FontWeight.w500,
+                            fontSize: 11.11,
+                            color: const Color(0xff292929),
+                          ),
+                        ),
+                        Text(
+                          "11/10/2021",
+                          style: GoogleFonts.raleway(
+                            fontWeight: FontWeight.w400,
+                            fontSize: 9.26,
+                            color: const Color(0xffB4B4B4),
+                          ),
+                        ),
+                      ],
+                    )
+                  ],
+                ),
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 31),
+                  child: Text(
+                    "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pulvinar ante id netus sit congue justo. Felis, volutpat sit senectus tempor, aliquam. Tellus proin enim orci in ullamcorper egestas dolor. Dictumst sed.",
+                    style: GoogleFonts.raleway(
+                      fontWeight: FontWeight.w400,
+                      fontSize: 11.11,
+                      color: const Color(0xff292929),
+                    ),
+                  ),
+                ),
+                SizedBox(height: 15,),
+              ],
+            ),
+            Column(
+              children: [
+                Row(
+                  children: [
+                    Image.asset("assets/image.png", height: 25, width: 25,),
+                    SizedBox(width: 6,),
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          "Mosab Mehmood",
+                          style: GoogleFonts.raleway(
+                            fontWeight: FontWeight.w500,
+                            fontSize: 11.11,
+                            color: const Color(0xff292929),
+                          ),
+                        ),
+                        Text(
+                          "11/10/2021",
+                          style: GoogleFonts.raleway(
+                            fontWeight: FontWeight.w400,
+                            fontSize: 9.26,
+                            color: const Color(0xffB4B4B4),
+                          ),
+                        ),
+                      ],
+                    )
+                  ],
+                ),
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 31),
+                  child: Text(
+                    "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pulvinar ante id netus sit congue justo. Felis, volutpat sit senectus tempor, aliquam. Tellus proin enim orci in ullamcorper egestas dolor. Dictumst sed.",
+                    style: GoogleFonts.raleway(
+                      fontWeight: FontWeight.w400,
+                      fontSize: 11.11,
+                      color: const Color(0xff292929),
+                    ),
+                  ),
+                ),
+                SizedBox(height: 15,),
+              ],
+            ),
+            Column(
+              children: [
+                Row(
+                  children: [
+                    Image.asset("assets/image.png", height: 25, width: 25,),
+                    SizedBox(width: 6,),
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          "Mosab Mehmood",
+                          style: GoogleFonts.raleway(
+                            fontWeight: FontWeight.w500,
+                            fontSize: 11.11,
+                            color: const Color(0xff292929),
+                          ),
+                        ),
+                        Text(
+                          "11/10/2021",
+                          style: GoogleFonts.raleway(
+                            fontWeight: FontWeight.w400,
+                            fontSize: 9.26,
+                            color: const Color(0xffB4B4B4),
+                          ),
+                        ),
+                      ],
+                    )
+                  ],
+                ),
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 31),
+                  child: Text(
+                    "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pulvinar ante id netus sit congue justo. Felis, volutpat sit senectus tempor, aliquam. Tellus proin enim orci in ullamcorper egestas dolor. Dictumst sed.",
+                    style: GoogleFonts.raleway(
+                      fontWeight: FontWeight.w400,
+                      fontSize: 11.11,
+                      color: const Color(0xff292929),
+                    ),
+                  ),
+                ),
+                SizedBox(height: 15,),
+              ],
+            ),
+            Column(
+              children: [
+                Row(
+                  children: [
+                    Image.asset("assets/image.png", height: 25, width: 25,),
+                    SizedBox(width: 6,),
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          "Mosab Mehmood",
+                          style: GoogleFonts.raleway(
+                            fontWeight: FontWeight.w500,
+                            fontSize: 11.11,
+                            color: const Color(0xff292929),
+                          ),
+                        ),
+                        Text(
+                          "11/10/2021",
+                          style: GoogleFonts.raleway(
+                            fontWeight: FontWeight.w400,
+                            fontSize: 9.26,
+                            color: const Color(0xffB4B4B4),
+                          ),
+                        ),
+                      ],
+                    )
+                  ],
+                ),
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 31),
+                  child: Text(
+                    "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pulvinar ante id netus sit congue justo. Felis, volutpat sit senectus tempor, aliquam. Tellus proin enim orci in ullamcorper egestas dolor. Dictumst sed.",
+                    style: GoogleFonts.raleway(
+                      fontWeight: FontWeight.w400,
+                      fontSize: 11.11,
+                      color: const Color(0xff292929),
+                    ),
+                  ),
+                ),
+                SizedBox(height: 15,),
+              ],
+            ),
+        
+          ],
+        ),
       ),
     );
   }

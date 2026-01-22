@@ -166,41 +166,6 @@ class _PersonalDetailViewState extends State<PersonalDetailView> {
 }
 
 
-class DashedButton extends StatelessWidget {
-  final Widget child;
-  final double borderRadius;
-  final Color borderColor;
-  final List<double> dashPattern;
-  final EdgeInsets padding;
-
-  const DashedButton({
-    super.key,
-    required this.child,
-    this.borderRadius = 10,
-    this.borderColor = const Color(0xff339D44),
-    this.dashPattern = const [6, 4],
-    this.padding = const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return DottedBorder(
-      borderType: BorderType.RRect,
-      radius: Radius.circular(borderRadius),
-      color: borderColor,
-      dashPattern: dashPattern,
-      strokeWidth: 1.2,
-      child: Padding(
-        padding: padding,
-        child: child,
-      ),
-    );
-  }
-}
-
-
-
-
 class AppDropdown extends StatefulWidget {
   final String label;
   final List<String> items;
