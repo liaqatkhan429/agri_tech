@@ -163,13 +163,14 @@ class _TabAllViewState extends State<TabAllView> {
                   ],
                 ),
                 Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 31),
+                  padding: const EdgeInsets.only(left: 31),
                   child: Text(
                     "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pulvinar ante id netus sit congue justo. Felis, volutpat sit senectus tempor, aliquam. Tellus proin enim orci in ullamcorper egestas dolor. Dictumst sed.",
                     style: GoogleFonts.raleway(
                       fontWeight: FontWeight.w400,
                       fontSize: 11.11,
                       color: const Color(0xff292929),
+                      letterSpacing: 0,
                     ),
                   ),
                 ),
@@ -206,13 +207,14 @@ class _TabAllViewState extends State<TabAllView> {
                   ],
                 ),
                 Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 31),
+                  padding: const EdgeInsets.only(left: 31),
                   child: Text(
                     "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pulvinar ante id netus sit congue justo. Felis, volutpat sit senectus tempor, aliquam. Tellus proin enim orci in ullamcorper egestas dolor. Dictumst sed.",
                     style: GoogleFonts.raleway(
                       fontWeight: FontWeight.w400,
                       fontSize: 11.11,
                       color: const Color(0xff292929),
+                      letterSpacing: 0,
                     ),
                   ),
                 ),
@@ -249,13 +251,14 @@ class _TabAllViewState extends State<TabAllView> {
                   ],
                 ),
                 Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 31),
+                  padding: const EdgeInsets.only(left: 31),
                   child: Text(
                     "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pulvinar ante id netus sit congue justo. Felis, volutpat sit senectus tempor, aliquam. Tellus proin enim orci in ullamcorper egestas dolor. Dictumst sed.",
                     style: GoogleFonts.raleway(
                       fontWeight: FontWeight.w400,
                       fontSize: 11.11,
                       color: const Color(0xff292929),
+                      letterSpacing: 0,
                     ),
                   ),
                 ),
@@ -292,13 +295,14 @@ class _TabAllViewState extends State<TabAllView> {
                   ],
                 ),
                 Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 31),
+                  padding: const EdgeInsets.only(left: 31),
                   child: Text(
                     "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pulvinar ante id netus sit congue justo. Felis, volutpat sit senectus tempor, aliquam. Tellus proin enim orci in ullamcorper egestas dolor. Dictumst sed.",
                     style: GoogleFonts.raleway(
                       fontWeight: FontWeight.w400,
                       fontSize: 11.11,
                       color: const Color(0xff292929),
+                      letterSpacing: 0,
                     ),
                   ),
                 ),
@@ -335,13 +339,14 @@ class _TabAllViewState extends State<TabAllView> {
                   ],
                 ),
                 Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 31),
+                  padding: const EdgeInsets.only(left: 31),
                   child: Text(
                     "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pulvinar ante id netus sit congue justo. Felis, volutpat sit senectus tempor, aliquam. Tellus proin enim orci in ullamcorper egestas dolor. Dictumst sed.",
                     style: GoogleFonts.raleway(
                       fontWeight: FontWeight.w400,
                       fontSize: 11.11,
                       color: const Color(0xff292929),
+                      letterSpacing: 0,
                     ),
                   ),
                 ),
@@ -378,19 +383,21 @@ class _TabAllViewState extends State<TabAllView> {
                   ],
                 ),
                 Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 31),
+                  padding: const EdgeInsets.only(left: 31),
                   child: Text(
                     "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pulvinar ante id netus sit congue justo. Felis, volutpat sit senectus tempor, aliquam. Tellus proin enim orci in ullamcorper egestas dolor. Dictumst sed.",
                     style: GoogleFonts.raleway(
                       fontWeight: FontWeight.w400,
                       fontSize: 11.11,
                       color: const Color(0xff292929),
+                      letterSpacing: 0,
                     ),
                   ),
                 ),
                 SizedBox(height: 15,),
               ],
             ),
+
         
           ],
         ),
