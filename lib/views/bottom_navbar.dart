@@ -5,6 +5,7 @@ import 'package:agri_tech/views/home.dart';
 import 'package:agri_tech/views/profile.dart';
 import 'package:agri_tech/views/training_videos.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class BottomNavbarView extends StatefulWidget {
@@ -166,7 +167,7 @@ Future<bool> _showExitDialog(BuildContext context) async {
               txt: "Yes",
               width: 124,
               height: 60,
-              onPress: () => Navigator.pop(context, true),
+              onPress: () => SystemNavigator.pop(),
             ),
             SizedBox(width: 9,),
             SizedBox(
