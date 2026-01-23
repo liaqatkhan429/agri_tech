@@ -57,7 +57,7 @@ class _TrainingVideosViewState extends State<TrainingVideosView> {
                         width: 24,
                       ),
                     )
-                    // 🔍 Search + ➕ Add
+
                         : Row(
                       children: [
                         InkWell(
@@ -109,7 +109,7 @@ class _TrainingVideosViewState extends State<TrainingVideosView> {
                   indicator:  FixedSizeTabIndicator(
                     color: Color(0xff339D44),
                     height: 40,
-                    width: 151,
+                    width: MediaQuery.of(context).size.width * 0.42,
                     radius: 10,
                   ),
                   splashFactory: NoSplash.splashFactory,

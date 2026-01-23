@@ -1,7 +1,4 @@
-import 'package:agri_tech/views/all_question.dart';
 import 'package:agri_tech/views/bottom_navbar.dart';
-import 'package:agri_tech/views/onBoarding.dart';
-import 'package:agri_tech/views/splash_screen.dart';
 import 'package:flutter/material.dart';
 
 void main() {

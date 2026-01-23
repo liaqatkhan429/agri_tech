@@ -1,5 +1,6 @@
 import 'package:agri_tech/utils/utils.dart';
 import 'package:agri_tech/views/all_reviews.dart';
+import 'package:agri_tech/views/edit_profile.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -74,20 +75,25 @@ class ProfileView extends StatelessWidget {
                      color: Color(0xff339D44),
                      borderRadius: BorderRadius.circular(8),
                    ),
-                   child: Row(
-                     mainAxisAlignment: MainAxisAlignment.center,
-                     children: [
-                       Icon(Icons.edit,size: 24,color: Colors.white,),
-                       SizedBox(width: 10,),
-                       Text(
-                         "Edit Profile",
-                         style: GoogleFonts.raleway(
-                           fontWeight: FontWeight.w400,
-                           fontSize: 11.11,
-                           color:  Colors.white,
+                   child: InkWell(
+                     onTap: (){
+                       Navigator.push(context, MaterialPageRoute(builder: (context) => EditProfileView()));
+                     },
+                     child: Row(
+                       mainAxisAlignment: MainAxisAlignment.center,
+                       children: [
+                         Icon(Icons.edit_outlined,size: 24,color: Colors.white,),
+                         SizedBox(width: 10,),
+                         Text(
+                           "Edit Profile",
+                           style: GoogleFonts.raleway(
+                             fontWeight: FontWeight.w400,
+                             fontSize: 11.11,
+                             color:  Colors.white,
+                           ),
                          ),
-                       ),
-                     ],
+                       ],
+                     ),
                    ),
                  )
                 ],
@@ -101,7 +107,7 @@ class ProfileView extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Text(
-                      "Stat",
+                      "Stats",
                       style: GoogleFonts.raleway(
                         fontWeight: FontWeight.w500,
                         fontSize: 13.33,
