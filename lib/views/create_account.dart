@@ -1,4 +1,7 @@
-  import 'package:agri_tech/utils/utils.dart';
+  import 'package:agri_tech/model/user.dart';
+import 'package:agri_tech/services/auth.dart';
+import 'package:agri_tech/services/user.dart';
+import 'package:agri_tech/utils/utils.dart';
 import 'package:agri_tech/views/login.dart';
 import 'package:agri_tech/views/personal_detail.dart';
 import 'package:flutter/material.dart';
@@ -17,6 +20,8 @@ import 'package:flutter/material.dart';
     TextEditingController emailController = TextEditingController();
     TextEditingController passwordController = TextEditingController();
     TextEditingController confirmPasswordController = TextEditingController();
+
+    bool isLoading = false;
     @override
     Widget build(BuildContext context) {
       return Scaffold(
@@ -105,8 +110,44 @@ import 'package:flutter/material.dart';
 
                     SizedBox(height: 58,),
                     
-                    AppButton(txt: "Next", width: 312, height: 60, onPress: (){
-                      Navigator.push(context, MaterialPageRoute(builder: (context) => PersonalDetailView()));
+                    isLoading
+                    ? CircularProgressIndicator()
+                    : AppButton(txt: "Next", width: 312, height: 60, onPress: () async{
+                      if(nameController.text.isEmpty || emailController.text.isEmpty || passwordController.text.isEmpty || confirmPasswordController.text.isEmpty){
+                        ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text("Fill all fields")));
+                        return ;
+                      }
+                      if(confirmPasswordController.text != passwordController.text){
+                        ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text("Password not matching")));
+                        return;
+                      }
+
+                      try{
+                        isLoading = true;
+                        setState(() {});
+                        await AuthServices().signUp(
+                            email: emailController.text,
+                            password: passwordController.text
+                        ).then((val) {
+                           UserServices().createUser(
+                              UserModel(
+                                docId: val.uid,
+                                name: nameController.text,
+                                email: emailController.text,
+                                createAt: DateTime.now().millisecondsSinceEpoch,
+
+                              )
+                          ).then((val){
+                            isLoading = false;
+                            setState(() {});
+                            ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text("User Created Successfully")));
+                          });
+                        });
+                      }catch(e){
+                        isLoading = false;
+                        setState(() {});
+                        ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(e.toString())));
+                      }
                     }),
                     SizedBox(height: 23,),
                     Text(
@@ -118,7 +159,7 @@ import 'package:flutter/material.dart';
                       ),
                     ),
                     SizedBox(height: 20,),
-                    TextButton(onPressed: (){
+                    TextButton(onPressed: () {
                       Navigator.push(context, MaterialPageRoute(builder: (context) => LoginView()));
                     }
                       , child: Text(
