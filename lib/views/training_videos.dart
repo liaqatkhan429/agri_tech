@@ -230,6 +230,28 @@ class TabAllButton extends StatelessWidget {
                         ],
                       ),
                     ),
+
+                    SizedBox(width: 36,),
+                    InkWell(
+                      onTap: (){
+                        Navigator.push(context, MaterialPageRoute(builder: (context) => UserCommentView()));
+                      },
+                      child: Row(
+                        children: [
+                          Image.asset("assets/saved.png",color :  Color(0xffB4B4B4),height: 18,width: 18,),
+                          SizedBox(width: 6,),
+                          Text(
+                            "23 Saved",
+                            style: GoogleFonts.raleway(
+                              fontWeight: FontWeight.w400,
+                              fontSize: 9.26,
+                              color:  Color(0xffB4B4B4),
+                            ),
+                          ),
+
+                        ],
+                      ),
+                    ),
                   ],
                 ),
               ),

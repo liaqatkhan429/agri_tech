@@ -2,6 +2,7 @@ import 'package:agri_tech/utils/utils.dart';
 import 'package:agri_tech/views/answer.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 class QuestionsView extends StatefulWidget {
   const QuestionsView({super.key});
@@ -120,8 +121,14 @@ class _QuestionsViewState extends State<QuestionsView> {
 
 
 class AllView extends StatelessWidget {
-  const AllView({super.key});
-
+   AllView({super.key});
+   
+   PageController controller = PageController();
+  List<String> picList = [
+    "assets/tractor.png",
+    "assets/tractorvideo.png",
+    "assets/nodata.png",
+  ];
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
@@ -190,7 +197,7 @@ class AllView extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 30),
                 child: Text(
-                  "I have an issue regarding this vehicle",
+                  "What is the process of purchasing Vehicle from hardware store?",
                   style: GoogleFonts.raleway(
                     fontWeight: FontWeight.w500,
                     fontSize: 13.33,
@@ -199,7 +206,41 @@ class AllView extends StatelessWidget {
                 ),
               ),
               SizedBox(height: 15,),
-              Image.asset("assets/tractor.png"),
+              Stack(
+                children: [
+                  SizedBox(
+                    height: 179, // 👈 MUST
+                    child: PageView.builder(
+                      controller: controller,
+                      itemCount: picList.length,
+                      itemBuilder: (context, i) {
+                        return Image.asset(
+                          picList[i],
+                          fit: BoxFit.cover,
+                        );
+                      },
+                    ),
+                  ),
+                  Positioned(
+                    bottom: 12,
+                    right: 152,
+                    child: SmoothPageIndicator(
+                      controller: controller,
+                      count: picList.length,
+                      effect: JumpingDotEffect(
+                        activeDotColor: Colors.white,
+                        dotColor: Colors.white70,
+                        radius: 8,
+                        dotHeight: 9,
+                        dotWidth: 9,
+                        jumpScale: .7,
+                        verticalOffset: 15,
+                      ),
+                    ),
+                  )
+                ],
+              ),
+
               SizedBox(height: 24,),
               Divider(color: Color(0xffd4d4d4),),
               SizedBox(height: 24,),
@@ -263,7 +304,7 @@ class AllView extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 30),
                 child: Text(
-                  "What is the process of purchasing Vehicle from hardware store?",
+                  "I have an issue regarding this vehicle",
                   style: GoogleFonts.raleway(
                     fontWeight: FontWeight.w500,
                     fontSize: 13.33,

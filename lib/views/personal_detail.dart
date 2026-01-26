@@ -1,4 +1,5 @@
 import 'package:agri_tech/utils/utils.dart';
+import 'package:agri_tech/views/login.dart';
 import 'package:dotted_border/dotted_border.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -115,9 +116,11 @@ class _PersonalDetailViewState extends State<PersonalDetailView> {
             AppButton(txt: "Next", width: double.infinity, height: 60, onPress: (){
 
               showDialog(
+                  barrierColor: Colors.black54,
                   context: context,
                   builder: (context){
                     return AlertDialog(
+                      backgroundColor: Colors.white,
                       title: Icon(Icons.done_all, size: 48,color: Color(0xff339D44),),
                       content: Column(
                         mainAxisSize: MainAxisSize.min,
@@ -142,20 +145,24 @@ class _PersonalDetailViewState extends State<PersonalDetailView> {
                         ],
                       ),
                       actions: [
-                        AppButton(txt: "Login", width: double.infinity, height: 60, onPress: (){})
+                        AppButton(txt: "Login", width: double.infinity, height: 60, onPress: (){
+                          Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => LoginView()));
+                        })
                       ],
                     );
                   });
             }),
             SizedBox(height: 19,),
-            Text(
-              "Back",
-              style: GoogleFonts.raleway(
-                fontWeight: FontWeight.w400,
-                fontSize: 13,
-                color: const Color(0xff339D44),
-              ),
+          TextButton(onPressed: (){
+            Navigator.pop(context);
+          }, child:   Text(
+            "Back",
+            style: GoogleFonts.raleway(
+              fontWeight: FontWeight.w400,
+              fontSize: 13,
+              color: const Color(0xff339D44),
             ),
+          ),)
 
 
         ],),

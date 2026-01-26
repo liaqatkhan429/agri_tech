@@ -1,4 +1,5 @@
 import 'package:agri_tech/utils/utils.dart';
+import 'package:agri_tech/views/bottom_navbar.dart';
 import 'package:agri_tech/views/create_account.dart';
 import 'package:agri_tech/views/forgot_password.dart';
 import 'package:agri_tech/views/home.dart';
@@ -112,7 +113,7 @@ class _LoginViewState extends State<LoginView> {
                   SizedBox(height: 58,),
 
                   AppButton(txt: "Login", width: 312, height: 60, onPress: (){
-                  Navigator.push(context, MaterialPageRoute(builder: (context) => HomeView()));
+                  Navigator.push(context, MaterialPageRoute(builder: (context) => BottomNavbarView()));
 
                   }),
                   SizedBox(height: 23,),

@@ -1,4 +1,5 @@
 import 'package:agri_tech/views/connection_lost.dart';
+import 'package:agri_tech/views/splash_screen.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -12,7 +13,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
 debugShowCheckedModeBanner: false,
-      home: ConnectionLostView(),
+      home: SplashScreen(),
     );
   }
 }
