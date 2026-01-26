@@ -1,4 +1,4 @@
-import 'package:agri_tech/views/bottom_navbar.dart';
+import 'package:agri_tech/views/connection_lost.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -12,7 +12,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
 debugShowCheckedModeBanner: false,
-      home: BottomNavbarView(),
+      home: ConnectionLostView(),
     );
   }
 }
