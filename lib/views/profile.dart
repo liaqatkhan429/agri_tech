@@ -1,3 +1,4 @@
+import 'package:agri_tech/provider/user.dart';
 import 'package:agri_tech/utils/utils.dart';
 import 'package:agri_tech/views/all_reviews.dart';
 import 'package:agri_tech/views/edit_profile.dart';
@@ -11,7 +12,7 @@ class ProfileView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var userProvider = Provider.of(context);
+    var userProvider = Provider.of<UserProvider>(context);
     return Scaffold(
       body: SafeArea(
         child: SingleChildScrollView(
@@ -58,7 +59,7 @@ class ProfileView extends StatelessWidget {
                  ),
                   SizedBox(height: 10,),
                   Text(
-                    "Muhammad Wajahat",
+                   userProvider.getUser().name.toString() ,
                     style: GoogleFonts.raleway(
                       fontWeight: FontWeight.w500,
                       fontSize: 16,
@@ -67,7 +68,7 @@ class ProfileView extends StatelessWidget {
                   ),
                   SizedBox(height: 10,),
                   Text(
-                    "mwajahat.038@gmail.com",
+                    userProvider.getUser().email.toString(),
                     style: GoogleFonts.raleway(
                       fontWeight: FontWeight.w400,
                       fontSize: 11.11,
