@@ -1,9 +1,15 @@
+import 'package:agri_tech/services/user.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class SittingView extends StatelessWidget {
+class SittingView extends StatefulWidget {
   const SittingView({super.key});
 
+  @override
+  State<SittingView> createState() => _SittingViewState();
+}
+
+class _SittingViewState extends State<SittingView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -20,7 +26,7 @@ class SittingView extends StatelessWidget {
                         Navigator.pop(context);
                       },
                       child: Image.asset("assets/arrow_back_icon.png",height: 24,width: 24,)),
-        
+
                   SizedBox(width: 20,),
                   Text(
                     "Sittings",
@@ -75,19 +81,23 @@ class SittingView extends StatelessWidget {
 
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 15),
-              child: Row(
-                children: [
-                  Image.asset("assets/logout.png",height: 24,width: 24,),
-                  SizedBox(width: 8,),
-                  Text(
-                    "Rate our app",
-                    style: GoogleFonts.raleway(
-                      fontWeight: FontWeight.w500,
-                      fontSize: 13.33,
-                      color: const Color(0xff000000),
+              child: InkWell(
+                onTap: () async{
+                },
+                child: Row(
+                  children: [
+                    Image.asset("assets/logout.png",height: 24,width: 24,),
+                    SizedBox(width: 8,),
+                    Text(
+                      "LogOut",
+                      style: GoogleFonts.raleway(
+                        fontWeight: FontWeight.w700,
+                        fontSize: 13.33,
+                        color:  Color(0xffF24E1E),
+                      ),
                     ),
-                  ),
-                ],
+                  ],
+                ),
               )
             ),
             Divider(color: Color(0xffD4D4D4).withOpacity(0.1),),

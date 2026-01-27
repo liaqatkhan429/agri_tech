@@ -109,28 +109,56 @@ class _EditProfileViewState extends State<EditProfileView> {
                 SizedBox(height: 24),
                 Utils().buildTextField("Email", 1, controller: emailController),
                 SizedBox(height: 356),
-                AppButton(
-                  txt: "Save Changes",
-                  width: double.infinity,
-                  height: 60,
-                  onPress: () async {
-                    try{
-
-                      await UserServices().updateUser(
-                          UserModel(
-                            docId: userProvider.getUser().docId.toString(),
-                            name: nameController.text,
-                            email: emailController.text,
-                          )
-                      ).then((val){
-                        ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text("Profile Updated Successfully")));
-                      });
-                    }catch(e){
-                      ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(e.toString())));
-
-                    }
-                  },
-                ),
+                isLoading
+                    ? Center(child: CircularProgressIndicator())
+                    : AppButton(
+                        txt: "Save Changes",
+                        width: double.infinity,
+                        height: 60,
+                        onPress: () async {
+                          try {
+                            isLoading = true;
+                            setState(() {});
+                            await UserServices()
+                                .updateUser(
+                                  UserModel(
+                                    docId: userProvider
+                                        .getUser()
+                                        .docId
+                                        .toString(),
+                                    name: nameController.text,
+                                    email: emailController.text,
+                                  ),
+                                )
+                                .then((val) async {
+                                  await UserServices()
+                                      .getUserProfile(
+                                        userProvider.getUser().docId.toString(),
+                                      )
+                                      .then((userData) {
+                                    isLoading = false;
+                                    setState(() {});
+                                        userProvider.setUser(userData);
+                                        ScaffoldMessenger.of(
+                                          context,
+                                        ).showSnackBar(
+                                          SnackBar(
+                                            content: Text(
+                                              "Profile Updated Successfully",
+                                            ),
+                                          ),
+                                        );
+                                      });
+                                });
+                          } catch (e) {
+                            isLoading = false;
+                            setState(() {});
+                            ScaffoldMessenger.of(context).showSnackBar(
+                              SnackBar(content: Text(e.toString())),
+                            );
+                          }
+                        },
+                      ),
               ],
             ),
           ),
