@@ -1,4 +1,6 @@
+import 'package:agri_tech/services/auth.dart';
 import 'package:agri_tech/services/user.dart';
+import 'package:agri_tech/views/login.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -10,6 +12,8 @@ class SittingView extends StatefulWidget {
 }
 
 class _SittingViewState extends State<SittingView> {
+
+  bool isLoading = false;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -83,10 +87,29 @@ class _SittingViewState extends State<SittingView> {
               padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 15),
               child: InkWell(
                 onTap: () async{
+                  try{
+                    isLoading = true;
+                    setState(() {});
+                    await AuthServices().signOut().then((val){
+                      isLoading = false;
+                      setState(() {});
+                      Navigator.pushAndRemoveUntil(
+                        context,
+                        MaterialPageRoute(builder: (_) => LoginView()),
+                            (route) => false,
+                      );
+                    });
+                  }catch(e){
+                    isLoading = false;
+                    setState(() {});
+                    ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(e.toString())));
+                  }
                 },
                 child: Row(
                   children: [
-                    Image.asset("assets/logout.png",height: 24,width: 24,),
+                    isLoading
+                    ? CircularProgressIndicator()
+                    : Image.asset("assets/logout.png",height: 24,width: 24,),
                     SizedBox(width: 8,),
                     Text(
                       "LogOut",
