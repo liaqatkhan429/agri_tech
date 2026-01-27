@@ -111,7 +111,7 @@ import 'package:flutter/material.dart';
                     SizedBox(height: 58,),
                     
                     isLoading
-                    ? CircularProgressIndicator()
+                    ? Center(child: CircularProgressIndicator())
                     : AppButton(txt: "Next", width: 312, height: 60, onPress: () async{
                       if(nameController.text.isEmpty || emailController.text.isEmpty || passwordController.text.isEmpty || confirmPasswordController.text.isEmpty){
                         ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text("Fill all fields")));

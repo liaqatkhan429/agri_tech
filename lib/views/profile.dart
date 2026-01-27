@@ -4,12 +4,14 @@ import 'package:agri_tech/views/edit_profile.dart';
 import 'package:agri_tech/views/sitting.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
 
 class ProfileView extends StatelessWidget {
   const ProfileView({super.key});
 
   @override
   Widget build(BuildContext context) {
+    var userProvider = Provider.of(context);
     return Scaffold(
       body: SafeArea(
         child: SingleChildScrollView(

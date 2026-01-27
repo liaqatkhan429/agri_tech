@@ -1,10 +1,13 @@
+import 'package:agri_tech/provider/user.dart';
+import 'package:agri_tech/services/auth.dart';
+import 'package:agri_tech/services/user.dart';
 import 'package:agri_tech/utils/utils.dart';
 import 'package:agri_tech/views/bottom_navbar.dart';
 import 'package:agri_tech/views/create_account.dart';
 import 'package:agri_tech/views/forgot_password.dart';
-import 'package:agri_tech/views/home.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
 
 class LoginView extends StatefulWidget {
   const LoginView({super.key});
@@ -14,11 +17,14 @@ class LoginView extends StatefulWidget {
 }
 
 class _LoginViewState extends State<LoginView> {
-
   TextEditingController emailController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
+
+  bool isLoading = false;
+
   @override
   Widget build(BuildContext context) {
+    var userProvider = Provider.of<UserProvider>(context);
     return Scaffold(
       backgroundColor: Colors.white,
       body: SingleChildScrollView(
@@ -48,7 +54,11 @@ class _LoginViewState extends State<LoginView> {
                         borderRadius: BorderRadius.circular(30),
                       ),
                       child: Padding(
-                        padding: const EdgeInsets.only(top: 45, right: 30, left: 30),
+                        padding: const EdgeInsets.only(
+                          top: 45,
+                          right: 30,
+                          left: 30,
+                        ),
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
@@ -69,9 +79,6 @@ class _LoginViewState extends State<LoginView> {
                                 color: const Color(0xffB4B4B4),
                               ),
                             ),
-
-
-
                           ],
                         ),
                       ),
@@ -86,18 +93,21 @@ class _LoginViewState extends State<LoginView> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   /// Email
-                  buildTextField(
-                      "Email",
-                      controller: emailController),
-                  SizedBox(height: 20,),
+                  buildTextField("Email", controller: emailController),
+                  SizedBox(height: 20),
                   // password
-                  buildTextField("Password", controller:  passwordController),
-                  SizedBox(height: 20,),
+                  buildTextField("Password", controller: passwordController),
+                  SizedBox(height: 20),
                   Align(
                     alignment: Alignment.centerRight,
                     child: InkWell(
-                      onTap: (){
-                        Navigator.push(context, MaterialPageRoute(builder: (context) => ForgotPasswordView()));
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => ForgotPasswordView(),
+                          ),
+                        );
                       },
                       child: Text(
                         "Forget Password",
@@ -110,13 +120,44 @@ class _LoginViewState extends State<LoginView> {
                     ),
                   ),
 
-                  SizedBox(height: 58,),
+                  SizedBox(height: 58),
 
-                  AppButton(txt: "Login", width: 312, height: 60, onPress: (){
-                  Navigator.push(context, MaterialPageRoute(builder: (context) => BottomNavbarView()));
+                  isLoading
 
-                  }),
-                  SizedBox(height: 23,),
+                  ? Center(
+                    child: CircularProgressIndicator(),
+                  )
+                  : AppButton(
+                    txt: "Login",
+                    width: 312,
+                    height: 60,
+                    onPress: () async {
+                      try {
+                        isLoading = true;
+                        setState(() {});
+                        await AuthServices()
+                            .signIn(
+                              email: emailController.text,
+                              password: passwordController.text,
+                            )
+                            .then((val) async{
+                              isLoading = false;
+                              setState(() {});
+                              await UserServices().getUserProfile(val.uid).then((userData){
+                                userProvider.setUser(userData);
+                                Navigator.push(context, MaterialPageRoute(builder: (context) => BottomNavbarView()));
+                              });
+                            });
+                      } catch (e) {
+                        isLoading = false;
+                        setState(() {});
+                        ScaffoldMessenger.of(
+                          context,
+                        ).showSnackBar(SnackBar(content: Text(e.toString())));
+                      }
+                    },
+                  ),
+                  SizedBox(height: 23),
                   Text(
                     "Don't have an account?",
                     style: GoogleFonts.raleway(
@@ -125,17 +166,25 @@ class _LoginViewState extends State<LoginView> {
                       color: const Color(0xffB4B4B4),
                     ),
                   ),
-                  SizedBox(height: 20,),
-                  TextButton(onPressed: (){
-                    Navigator.push(context, MaterialPageRoute(builder: (context) => CreateAccountView()));
-                  }, child: Text(
+                  SizedBox(height: 20),
+                  TextButton(
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => CreateAccountView(),
+                        ),
+                      );
+                    },
+                    child: Text(
                       "Sign Up",
                       style: GoogleFonts.raleway(
                         fontWeight: FontWeight.w700,
                         fontSize: 27.65,
                         color: const Color(0xff339D44),
                       ),
-                    ),)
+                    ),
+                  ),
                 ],
               ),
             ),
@@ -146,10 +195,10 @@ class _LoginViewState extends State<LoginView> {
   }
 
   Widget buildTextField(
-      String label, {
-        required TextEditingController controller,
-        bool isPassword = false,
-      }) {
+    String label, {
+    required TextEditingController controller,
+    bool isPassword = false,
+  }) {
     return TextField(
       controller: controller,
       obscureText: isPassword,
@@ -176,6 +225,4 @@ class _LoginViewState extends State<LoginView> {
       ),
     );
   }
-
-
 }
